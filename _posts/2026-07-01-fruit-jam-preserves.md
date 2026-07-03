@@ -3,7 +3,7 @@ layout: recipe
 title: Fruit jam preserves
 date: 2026-07-01
 image: ""
-yield: 10 jars
+yield: {value: 10, unit: jars}
 ingredients:
   - {name: fruit, value: 5, unit: kg}
   - {name: sugar, value: 2.5, unit: kg}
@@ -22,7 +22,7 @@ instructions:
     - hello
 prepmins: 20
 cookmins: 15
-image: flapjack.jpg
+image: /assets/images/jam-jar.png
 tags:
   - featured
   - recipe
