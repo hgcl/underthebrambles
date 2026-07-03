@@ -4,11 +4,6 @@ title: Welcome
 description: Discover mossy paths, drying herbs, and timeless crafts.
 ---
 
-<section class="hero">
-  <h2>Under the Brambles</h2>
-  <p>A place for mossy paths, drying herbs, well-worn recipes, and timeless crafts.</p>
-</section>
-
 <section>
   <h3>Latest Posts</h3>
   <ul>
