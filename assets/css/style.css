@@ -1,64 +1,38 @@
-body {
-  font-family: Georgia, serif;
-  line-height: 1.75;
-  color: #2b2b2b;
-  background: #f7f3ed;
-  margin: 0;
-  padding: 0;
+:root {
+  /* COLORS */
+  --color-fg-default: #2d3322;
+  --color-fg-mute: #585c44;
+  --color-bg-default: #f1ffc0;
+  --color-fg-strong: #f3eee7;
+  --color-bg-strong: #3c4a3f;
+
+  /* SPACES */
+  --space-m: 16px;
+  --space-l: 32px;
 }
 
+html {
+  font-size: 18px;
+  font-family: 'Nimbus Mono PS', 'Courier New', monospace;
+  font-weight: normal;
+  color: var(--color-fg-default);
+  background: var(--color-bg-default);
+}
+
+
 .site-header {
-  background: #3c4a3f;
-  color: #f3eee7;
+  color: var(--color-fg-strong);
+  background: var(--color-bg-strong);
   padding: 2rem 1.5rem;
 }
 
-.site-header a {
-  color: #f3eee7;
-  text-decoration: none;
-}
-
-.site-header h1 {
-  margin: 0;
-  font-size: 2rem;
-}
-
-.site-header p {
-  margin: 0.5rem 0 0;
-  opacity: 0.85;
-}
-
-.site-nav {
-  margin-top: 1rem;
-}
-
-.site-nav a {
-  color: #dcd4c5;
-  margin-right: 1rem;
-}
-
-.site-content {
-  max-width: 720px;
-  margin: 2rem auto;
-  padding: 0 1.5rem 3rem;
-  background: #ffffff;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+.site-title {
+  font-size: 0.8rem;
+  line-height: 1;
 }
 
 .site-footer {
+  color: var(--color-fg-mute);
   text-align: center;
   padding: 1.5rem;
-  color: #5a594f;
-}
-
-.hero h2 {
-  margin-top: 0;
-}
-
-ul {
-  padding-left: 1.25rem;
-}
-
-li {
-  margin-bottom: 0.75rem;
 }
