@@ -1,14 +1,13 @@
 ---
 layout: default
-title: Welcome
-description: Discover mossy paths, drying herbs, and timeless crafts.
+title: Homepage
 ---
 
 <section>
   <h3>Latest Posts</h3>
   <ul>
     {% for post in site.posts %}
-      <li><a href="{{ post.url }}">{{ post.title }}</a> <small>{{ post.date | date: "%B %-d, %Y" }}</small></li>
+      <li><a href="{{ post.url }}">{{ post.title }}</a> <span>{{ post.date | date: "%B %-d, %Y" }}</span></li>
     {% endfor %}
   </ul>
 </section>
