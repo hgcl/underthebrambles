@@ -9,21 +9,42 @@
   /* SPACES */
   --space-m: 16px;
   --space-l: 32px;
+
+  /* FONTS */
+  --font-body: "Noticia Text", serif;
+  --font-heading: Epilogue, serif;
 }
 
 html {
   font-size: 18px;
-  font-family: 'Nimbus Mono PS', 'Courier New', monospace;
+  font-family: var(--font-body);
   font-weight: normal;
   color: var(--color-fg-default);
   background: var(--color-bg-default);
 }
 
+summary {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+}
+
+h1 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+}
 
 .site-header {
-  color: var(--color-fg-strong);
-  background: var(--color-bg-strong);
-  padding: 2rem 1.5rem;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+
+  h1 a {
+    text-decoration: none;
+  }
 }
 
 .site-title {
