@@ -19,11 +19,12 @@ page_type: /assets/css/recipe-page.css
   {{content}}
 
   <!-- metadata --> 
-  {% if page.prepmins or page.cookmins %}
+  {% if page.prepTime or page.cookTime or page.yield %}
     <ul>
       {% if page.yield %}<li>Yield: <span itemprop="recipeYield">{{ page.yield.value }} {{ page.yield.unit }}</span></li>{% endif %}
-      {% if page.prepmins %}<li>Preparation time: <time datetime="PT{{ page.prepmins }}M" itemprop="prepTime">{{ page.prepmins }} mins</time></li>{% endif %}
-      {% if page.cookmins %}<li>Cooking time: <time datetime="PT{{ page.cookmins }}M" itemprop="cookMins">{{ page.cookmins }} min</time></li>{% endif %}
+      {% if page.prepTime %}<li>Preparation time: {% include duration.html itemProp="prepTime" hour=page.prepTime.hour min=page.prepTime.min %}</li>{% endif %}
+      {% if page.cookTime %}<li>Cooking time: {% include duration.html itemProp="cookTime"  hour=page.cookTime.hour min=page.cookTime.min %}</li>{% endif %}
+      {% if page.totalTime %}<li>Total time: {% include duration.html   hour=page.totalTime.hour min=page.totalTime.min %}</li>{% endif %}
     </ul>
   {% endif %}
 

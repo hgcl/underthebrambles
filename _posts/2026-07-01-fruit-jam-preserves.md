@@ -3,11 +3,10 @@ layout: recipe
 title: Fruit jam preserves
 date: 2026-07-01
 image: /assets/images/jam-jar.png
-tags:
-  - featured
-  - recipe
-prepmins: 20
-cookmins: 15
+months: [4, 5, 6, 7, 8, 9]
+prepTime: {min: 20}
+cookTime: {min: 15}
+totalTime: {hour: 10}
 yield: {value: 10, unit: jars}
 ingredients:
   - {name: fruit, value: 5, unit: kg}

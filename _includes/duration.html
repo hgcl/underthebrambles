@@ -1,0 +1,4 @@
+{% assign hour = include.hour %}
+{% assign min = include.min %}
+
+<time itemProp="{{ include.itemProp | default: '' }}" datetime="PT{% if hour %}{{ hour }}H{% endif %}{% if min %}{{ min }}M{% endif %}">{% if hour %}{{ hour }} H {{ min }}{% else %}{{ min }} mins{% endif %}</time>
