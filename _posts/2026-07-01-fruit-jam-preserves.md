@@ -34,9 +34,9 @@ instructions:
     - Repeat the process until all the jam is in containers. Let them cool down at room temperature.
     - When cool, make sure to label the containers with the year. They can be kept for a few years.
 faq:
-  - question: How long can the jam be kept?
+  - question: How long can I keep this jam?
     answer: The jars can be kept in a cool room for up to a few years. Ideally, eat them within a year and make another batch the following year!
-  - question: What is this white mold?
+  - question: What is the white mold on the surface?
     answer: If opened and not eaten fast enough, some jars might develop a few spots of white mold. Many people scrape that mold off, and safely eat what is underneath. If the mold is brightly colored or if you have a weak immune system, it might be better to discard the jar.
 sources:
   - {name: "The short, sweet, and sticky history of jam (National Geographic)", url: https://www.nationalgeographic.com/history/article/history-of-jam-meghan-markle-lifestyle/}

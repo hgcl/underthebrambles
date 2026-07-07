@@ -11,21 +11,21 @@ page_type: /assets/css/recipe-page.css
 
 <article itemscope itemtype="https://schema.org/Recipe">
 
-  <header class="post-header">
-    <img itemprop="image" src="{{ page.image }}" class="post-image"/>
-    <div class="post-intro">
+  <header class="recipe-header">
+    <img itemprop="image" src="{{ page.image }}" class="recipe-header--image" alt=""/>
+    <div class="recipe-header--intro">
       <h1 itemprop="name">{{ page.title }}</h1>
-      <time class="post-date" datetime="{{ page.date }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+      <time class="recipe-header--date" datetime="{{ page.date }}">{{ page.date | date: "%B %-d, %Y" }}</time>
       <p itemprop="description">{{ page.excerpt }}</p>
       <a href="#recipe">Go to recipe <span aria-hidden>↓</span></a>
     </div>
   </header>
   
-  <div class="post-content">
-    <div class="typography post-story">
+  <div class="recipe-content">
+    <div class="typography recipe-content--left">
       <h2 class="visually-hidden">Background</h2>
       {{content}}
-      <div class="post-sources">
+      <div class="recipe-content--sources">
         <h3>Sources</h3>
         {%- for source in page.sources -%}
         <a href="{{ source.url }}">{{ source.name }}</a>
@@ -33,8 +33,8 @@ page_type: /assets/css/recipe-page.css
       </div>
     </div>
     
-    <div>
-      <h2 id="recipe" class="visually-hidden">Recipe</h2>
+    <div id="recipe" class="recipe-content--right">
+      <h2 class="visually-hidden">Recipe</h2>
 
       <!-- ingredients -->
       <div>
@@ -48,13 +48,15 @@ page_type: /assets/css/recipe-page.css
 
       <!-- metadata --> 
       {% if page.prepTime or page.cookTime or page.yield %}
-      <h3 class="visually-hidden">Other info</h3>
+      <div>
+        <h3 class="visually-hidden">Other info</h3>
         <ul>
           {% if page.yield %}<li>Yield: <span itemprop="recipeYield">{{ page.yield.value }} {{ page.yield.unit }}</span></li>{% endif %}
           {% if page.prepTime %}<li>Preparation time: {% include duration.html itemProp="prepTime" hour=page.prepTime.hour min=page.prepTime.min %}</li>{% endif %}
           {% if page.cookTime %}<li>Cooking time: {% include duration.html itemProp="cookTime"  hour=page.cookTime.hour min=page.cookTime.min %}</li>{% endif %}
           {% if page.totalTime %}<li>Total time: {% include duration.html   hour=page.totalTime.hour min=page.totalTime.min %}</li>{% endif %}
         </ul>
+      </div>
       {% endif %}
 
 
@@ -70,7 +72,7 @@ page_type: /assets/css/recipe-page.css
       </div>
 
       <!-- faq -->
-      <div>
+      <div class="recipe-content--faq">
         <h2>FAQ</h2>
         {%- for item in page.faq -%}
         <details>

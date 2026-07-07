@@ -1,49 +1,93 @@
-.post-header {
+/* HEADER TOP SECTION */
+.recipe-header {
   display: flex;
+  flex-wrap: wrap;
   align-items: start;
   justify-content: center;
   gap: var(--space-l);
 }
-
-.post-image {
+.recipe-header--image {
   max-width: 300px;
   height: fit-content;
 }
-.post-intro {
-  max-width: 720px;
+.recipe-header--intro {
+  max-width: var(--limited-width);
 
-  .post-date {
+  & > * {
+    margin-bottom: 0.5rem;
+  }
+  .recipe-header--date {
     display: block;
   }
   & p {
     font-size: 1.3rem;
+    margin-bottom: 1.5rem;
   }
 }
 
-.post-content {
+/* CONTENT BOTTOM SECTION */
+.recipe-content {
   margin-top: var(--space-xl);
   display: flex;
-  gap: var(--space-l);
+  flex-direction: column;
+  gap: var(--space-xl);
+  justify-content: center;
+}
 
-  .post-story {
-    flex: 1 0 500px;
+.recipe-content--left {
+    max-width: var(--limited-width);
+    flex: 1 0 50%;
     align-self: flex-start;
-    position: sticky;
     top: var(--space-l);
 
-    border: dashed 2px;
+    border: var(--border);
     padding: var(--space-m);
   }
 
-  .post-sources {
+.recipe-content--sources {
   margin-top: 2rem;
   color: var(--color-fg-mute);
 
-    h3 {
-      font-size: 1rem;
-    }
-    a {
-      font-style: italic;
-    }
+  h3 {
+    font-size: 1rem;
+  }
+  a {
+    font-style: italic;
+  }
 }
+
+.recipe-content--right {
+  max-width: var(--limited-width);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  h3 {
+    margin-bottom: 0.5rem;
+  }
+  h4 {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.recipe-content--faq {
+  details:open > summary {
+    padding-bottom: var(--space-m);
+  }
+  details {
+    display: block;
+    border-bottom: var(--border);
+    padding: var(--space-m) 0;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .recipe-content {
+    flex-direction: row;
+  }
+  .recipe-content--left {
+    position: sticky;
+
+  }
 }
