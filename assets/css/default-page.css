@@ -1,5 +1,5 @@
 main {
-  max-width: 720px;
+  max-width: var(--limited-width);
   margin: 0 auto;
   padding: var(--space-m);
 }

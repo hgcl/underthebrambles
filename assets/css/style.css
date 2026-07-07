@@ -1,20 +1,29 @@
 :root {
   /* COLORS */
   --color-fg-default: #2d3322;
-  --color-fg-mute: #585c44;
+  --color-fg-mute: hsl(70, 15%, 31%);
   --color-bg-default: #f1ffc0;
   --color-fg-strong: #f3eee7;
   --color-bg-strong: #3c4a3f;
+  --color-border: hsla(70, 15%, 31%, 0.5);
 
   /* SPACES */
   --space-m: 18px;
   --space-l: 36px;
   --space-xl: 54px;
 
-
   /* FONTS */
   --font-body: "Noticia Text", serif;
   --font-heading: Epilogue, serif;
+
+  /* OTHER */
+  --limited-width: 720px;
+  --border: 1px solid var(--color-border);
+
+  /**
+   * Use the following breakpoints if needed:
+   * 360px, 480px, 640px, 768px, 1024px, 1200px, 1440px
+   */
 }
 
 html {
@@ -56,16 +65,28 @@ body {
 
 .site-branding {
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
+  align-items: start;
   gap: 1.5rem;
 
-  h1 a {
-    text-decoration: none;
-  }
+  .site-title {
+    flex: 1 0 80%;
 
-  #breadcrumbs {
-    margin-block: var(--space-m); 
+    h1 {
+      line-height: 1.1;
+      margin-bottom: 0.2em;
+    }
+    a {
+      text-decoration: none;
+    }
   }
+  .site-logo {
+    width: 60px;
+  }
+}
+
+#breadcrumbs {
+  margin-block: var(--space-m); 
 }
 
 .site-content {
