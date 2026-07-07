@@ -35,23 +35,22 @@
 }
 
 .recipe-content--left {
-    max-width: var(--limited-width);
-    flex: 1 0 50%;
-    align-self: flex-start;
-    top: var(--space-l);
-
-    border: var(--border);
-    padding: var(--space-m);
-  }
-
+  max-width: var(--limited-width);
+  flex: 1 0 50%;
+  align-self: flex-start;
+  top: var(--space-l);
+  border: var(--border);
+}
+.recipe-content--background {
+  padding: var(--space-l) var(--space-m);
+}
 .recipe-content--sources {
-  margin-top: 2rem;
+  padding: var(--space-l) var(--space-m);
   color: var(--color-fg-mute);
+  border-top: var(--border);
 
-  h3 {
-    font-size: 1rem;
-  }
   a {
+    display: block;
     font-style: italic;
   }
 }

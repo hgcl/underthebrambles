@@ -13,7 +13,7 @@ page_type: /assets/css/recipe-page.css
 
   <header class="recipe-header">
     <img itemprop="image" src="{{ page.image }}" class="recipe-header--image" alt=""/>
-    <div class="recipe-header--intro">
+  <div class="recipe-header--intro">
       <h1 itemprop="name">{{ page.title }}</h1>
       <time class="recipe-header--date" datetime="{{ page.date }}">{{ page.date | date: "%B %-d, %Y" }}</time>
       <p itemprop="description">{{ page.excerpt }}</p>
@@ -23,10 +23,12 @@ page_type: /assets/css/recipe-page.css
   
   <div class="recipe-content">
     <div class="typography recipe-content--left">
-      <h2 class="visually-hidden">Background</h2>
-      {{content}}
+      <div class="recipe-content--background">
+        <h2>Background</h2>
+        {{content}}
+      </div>
       <div class="recipe-content--sources">
-        <h3>Sources</h3>
+        <h3 class="h4">Sources</h3>
         {%- for source in page.sources -%}
         <a href="{{ source.url }}">{{ source.name }}</a>
         {% endfor %}
@@ -38,7 +40,7 @@ page_type: /assets/css/recipe-page.css
 
       <!-- ingredients -->
       <div>
-        <h3>Ingredients</h3>
+        <h3 class="h2">Ingredients</h3>
         <ul>
             {%- for ingredient in page.ingredients -%}
             <li itemprop="recipeIngredient" itemscope itemtype="https://schema.org/PropertyValue"><span itemprop="value">{{ ingredient["value"] }}</span>{% if ingredient["unit"] %} {{ ingredient["unit"] }}{% endif %} <span itemprop="name">{{ ingredient["name"] }}</span>{% if ingredient["optional"] %} (optional){% endif %}</li>
@@ -62,7 +64,7 @@ page_type: /assets/css/recipe-page.css
 
       <!-- instructions -->
       <div itemprop="recipeInstructions">
-        <h3>Instructions</h3>
+        <h3 class="h2">Instructions</h3>
         {%- for instruction in page.instructions -%}
         {% if instruction.title %}<h4>{{ instruction.title }}</h4>{% endif %}
         <ol>
