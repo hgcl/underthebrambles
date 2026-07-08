@@ -5,9 +5,8 @@ head: |
   <style>
     .post-grid {
       padding: 0;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       gap: var(--space-m);
       list-style: none;
 
@@ -18,7 +17,6 @@ head: |
         padding: var(--space-m);
         border: var(--border);
         height: 100%;
-        aspect-ratio: 1;
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
@@ -31,14 +29,79 @@ head: |
         object-fit: contain;
       }
     }
+
+    .month-filter {
+      padding: .4rem .8rem;
+      border: 1px solid #ccc;
+      background: white;
+
+      &.active {
+        background: #333;
+        color: white;
+      }
+    }
   </style>
 ---
 
+<div id="tag-filters">
+  <h2 class="h3">Preparations by month</h2>
+  {% assign months = "1,2,3,4,5,6,7,8,9,10,11,12" | split: "," %}
+  {% for month in months %}
+    <button
+      class="month-filter active"
+      data-tag="{{ month }}"
+      aria-pressed
+    >
+      {{ month }}
+    </button>
+  {% endfor %}
+</div>
 
 <ul class="post-grid" role="list">
   {% for post in site.posts %}
-    <li>
+    <li class="post-card" data-months="{{ post.months | join: ',' }}">
       <a href="{{ post.url }}"><img src="{{ post.image }}" alt="" width="100px" height="100px"/><span>{{ post.title }}</span></a>
     </li>
   {% endfor %}
 </ul>
+
+<script>
+  const activeMonths = new Set(["1","2","3","4","5","6","7","8","9","10","11","12"]);
+
+  const buttons = document.querySelectorAll(".month-filter");
+  const posts = document.querySelectorAll(".post-card");
+
+  buttons.forEach(button => {
+    button.addEventListener("click", () => {
+      const month = button.dataset.tag;
+
+      // Visually show if filter buttons are active or not
+      if (activeMonths.has(month)) {
+        activeMonths.delete(month);
+        button.classList.remove("active");
+        button.ariaPressed = "false";
+      } else {
+        activeMonths.add(month);
+        button.classList.add("active");
+        button.ariaPressed = "true";
+      }
+
+      filterPosts();
+    });
+  });
+
+  function filterPosts() {
+    posts.forEach(post => {
+      const months = post.dataset.months.split(",");
+
+      if (activeMonths.size === 0) {
+        post.style.display = "none";
+        return;
+      }
+
+      // Show if the post is available in any selected month
+      const matches = [...activeMonths].some(month => months.includes(month));
+      post.style.display = matches ? "" : "none";
+    });
+  }
+</script>
