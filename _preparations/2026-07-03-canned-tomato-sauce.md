@@ -1,7 +1,7 @@
 ---
 layout: preparation
 title: Canned tomato sauce
-date: 2026-07-08
+date: 2026-07-03
 image: /assets/images/tomato.png
 months: [7, 8, 9]
 prepTime: {hour: 2}
