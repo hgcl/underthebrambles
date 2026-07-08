@@ -38,6 +38,10 @@ body {
   margin: var(--space-m);
 }
 
+img {
+  image-rendering: pixelated; /* maintain pixel art crispness */
+}
+
 .site-branding {
   display: flex;
   flex-wrap: wrap;

@@ -7,7 +7,7 @@
   gap: var(--space-l);
 }
 .preparation-header--image {
-  max-width: 300px;
+  width: 300px;
   height: fit-content;
 }
 .preparation-header--intro {
@@ -68,6 +68,10 @@
     margin-top: 1rem;
     margin-bottom: 0.5rem;
   }
+}
+
+.preparation-content--ingredients li:first-letter {
+  text-transform: uppercase;
 }
 
 .preparation-content--faq {
