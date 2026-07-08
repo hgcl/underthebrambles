@@ -6,12 +6,13 @@ head: |
     .post-grid {
       padding: 0;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
       gap: var(--space-m);
       list-style: none;
 
       li {
         padding: 0;
+        min-height: 200px;
       }
       a {
         padding: var(--space-m);
@@ -21,7 +22,7 @@ head: |
         flex-direction: column;
         gap: 0.5rem;
         align-items: center;
-        justify-content: center;
+        justify-content: space-around;
         text-align: center;
         text-decoration: none;
       }
@@ -30,7 +31,10 @@ head: |
       }
     }
 
-    .month-filter {
+    .tag-filters {
+      margin-bottom: var(--space-xl);
+    }
+    .month-filter-button {
       padding: .4rem .8rem;
       border: 1px solid #ccc;
       background: white;
@@ -43,14 +47,13 @@ head: |
   </style>
 ---
 
-<div id="tag-filters">
+<div class="tag-filters">
   <h2 class="h3">Preparations by month</h2>
   {% assign months = "1,2,3,4,5,6,7,8,9,10,11,12" | split: "," %}
   {% for month in months %}
     <button
-      class="month-filter active"
+      class="month-filter-button"
       data-tag="{{ month }}"
-      aria-pressed
     >
       {{ month }}
     </button>
@@ -66,12 +69,23 @@ head: |
 </ul>
 
 <script>
+  var today = new Date(); //Thu Jun 18 2020 10:17:04 GMT-0300
+  const currentMonth = (today.getMonth() + 1);
+
   const activeMonths = new Set(["1","2","3","4","5","6","7","8","9","10","11","12"]);
 
-  const buttons = document.querySelectorAll(".month-filter");
+  const buttons = document.querySelectorAll(".month-filter-button");
   const posts = document.querySelectorAll(".post-card");
 
   buttons.forEach(button => {
+    // Mark current month button as active
+    if (button.innerHTML === currentMonth) {
+      console.log(button.innerHTML);
+      console.log(currentMonth);
+      button.classList.add("active");
+      button.ariaPressed = "true";
+    }
+
     button.addEventListener("click", () => {
       const month = button.dataset.tag;
 
