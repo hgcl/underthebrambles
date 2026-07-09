@@ -35,11 +35,11 @@
 }
 
 .preparation-content--left {
+  width: 100%;
   max-width: var(--limited-width);
   flex: 1 0 50%;
   align-self: flex-start;
   top: var(--space-l);
-  /* border: var(--border); */
 }
 .preparation-content--background {
   padding: var(--space-l) var(--space-m);
@@ -69,8 +69,33 @@
   }
 }
 
-.preparation-content--ingredients li:first-letter {
-  text-transform: uppercase;
+.preparation-content--yield { 
+  display: block;
+  margin-bottom: 0.5rem;;
+}
+
+.preparation-content--more-info {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  border-top: var(--border);
+  border-bottom: var(--border);
+  width: 100%;
+  padding: 1rem;
+  margin: 0.5rem 0;
+
+  li {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+
+    & > span {
+      font-style: italic;
+      font-size: smaller;
+      color: var(--color-fg-mute);
+    }
+  }
 }
 
 .preparation-content--faq {

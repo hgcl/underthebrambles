@@ -57,6 +57,10 @@ a[href]:not(:where(
   content: ' ↗';
 }
 
+ul {
+  list-style: square;
+}
+
 h1, h2, h3, h4 {
   font-family: var(--font-heading);
   font-weight: 600;
@@ -153,6 +157,11 @@ button, summary {
     margin-bottom: 0.5rem;
   }
 }
+
+.capitalize-first-letter:first-letter {
+  text-transform: uppercase;
+}
+
 
 /* Add CSS frame: https://charlottedann.com/article/fancy-frames-with-css */
 .frame-border {

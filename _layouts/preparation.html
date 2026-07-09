@@ -27,12 +27,14 @@ page_type: /assets/css/preparation-page.css
         <h2>Background</h2>
         {{content}}
       </div>
+      {% if page.sources %}
       <div class="preparation-content--sources">
         <h3 class="h4">Sources</h3>
         {%- for source in page.sources -%}
         <a href="{{ source.url }}">{{ source.name }}</a>
         {% endfor %}
       </div>
+      {% endif %}
     </div>
     
     <div id="preparation" class="preparation-content--right">
@@ -41,22 +43,23 @@ page_type: /assets/css/preparation-page.css
       <!-- ingredients -->
       <div class="preparation-content--ingredients">
         <h3 class="h2">Ingredients</h3>
+        {% if page.yield %}<span class="preparation-content--yield">For <span itemprop="recipeYield">{{ page.yield.value }} {{ page.yield.unit }}</span>:</span>{% endif %}
         <ul>
             {%- for ingredient in page.ingredients -%}
-            <li itemprop="recipeIngredient" itemscope itemtype="https://schema.org/PropertyValue"><span itemprop="value">{{ ingredient["value"] }}</span>{% if ingredient["unit"] %} {{ ingredient["unit"] }}{% endif %} <span itemprop="name">{{ ingredient["name"] }}</span>{% if ingredient["optional"] %} (optional){% endif %}</li>
+            <li itemprop="recipeIngredient" itemscope itemtype="https://schema.org/PropertyValue" class="capitalize-first-letter"><span itemprop="value">{{ ingredient["value"] }}</span>{% if ingredient["unit"] %} {{ ingredient["unit"] }}{% endif %} <span itemprop="name">{{ ingredient["name"] }}</span>{% if ingredient["optional"] %} (optional){% endif %}</li>
             {%- endfor -%}
         </ul>
       </div>
 
       <!-- metadata --> 
-      {% if page.prepTime or page.cookTime or page.yield %}
+      {% if page.prepTime or page.cookTime or page.yield or page.moreInfo %}
       <div>
         <h3 class="visually-hidden">Other info</h3>
-        <ul>
-          {% if page.yield %}<li>Yield: <span itemprop="recipeYield">{{ page.yield.value }} {{ page.yield.unit }}</span></li>{% endif %}
-          {% if page.prepTime %}<li>Preparation time: {% include duration.html itemProp="prepTime" hour=page.prepTime.hour min=page.prepTime.min %}</li>{% endif %}
-          {% if page.cookTime %}<li>Cooking time: {% include duration.html itemProp="cookTime"  hour=page.cookTime.hour min=page.cookTime.min %}</li>{% endif %}
-          {% if page.totalTime %}<li>Total time: {% include duration.html   hour=page.totalTime.hour min=page.totalTime.min %}</li>{% endif %}
+        <ul class="preparation-content--more-info" role="list">
+          {% if page.prepTime %}<li><span>Preparation</span>{% include duration.html itemProp="prepTime" hour=page.prepTime.hour min=page.prepTime.min %}</li>{% endif %}
+          {% if page.cookTime %}<li><span>Cooking</span>{% include duration.html itemProp="cookTime"  hour=page.cookTime.hour min=page.cookTime.min %}</li>{% endif %}
+          {% if page.totalTime %}<li><span>Total time</span>{% include duration.html   hour=page.totalTime.hour min=page.totalTime.min %}</li>{% endif %}
+          {% if page.moreInfo %}{%- for info in page.moreInfo -%}<li><span class="capitalize-first-letter">{{ info[0] }}</span>{{ info[1] }}</li>{%- endfor -%}{% endif %}
         </ul>
       </div>
       {% endif %}
