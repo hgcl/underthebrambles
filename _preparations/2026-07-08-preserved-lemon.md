@@ -1,13 +1,13 @@
 ---
 layout: preparation
-title: Preserved lemon confit
+title: Preserved lemon
 date: 2026-07-08
 image: /assets/images/lemon.png
 months: [1, 2, 3, 4, 5, 5, 7, 8, 9, 10, 11, 12]
 prepTime: { min: 20 }
 moreInfo: { fermentation: 1 month }
 yield: { value: 1, unit: jar }
-excerpt: "XYZ"
+excerpt: "Bright, salty, and deeply aromatic, preserved lemons add a burst of flavor to tagines, salads, dressings, and more. They're surprisingly easy to make with just two ingredients."
 ingredients:
   - { name: lemons, value: 5 }
   - { name: salt, value: 5, unit: tsp }
@@ -23,3 +23,9 @@ faq:
   - question: Why are these lemons safe to eat?
     answer: These lemons go through the lactic acid fermentation process. The acid produced by the Lactobacillus bacteria makes this preparation very safe to eat.
 ---
+
+Also known as lemon pickles, different types of preserved lemon recipes can be found in South Asian, Southeast Asian and North African cuisines.
+
+The traditional preparation detailed here is the North African version: whole lemons fermented with salt through lactic acid fermentation.
+
+This process removes the bitterness from the lemon peel, making it soft, salty, and pleasantly tangy. And that's the surprising part: with preserved lemons, it's the peel you eat, not the flesh.
