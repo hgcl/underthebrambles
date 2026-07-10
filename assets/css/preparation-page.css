@@ -7,10 +7,11 @@
   gap: var(--space-l);
 }
 .preparation-header--image {
-  width: 300px;
+  flex-basis: 300px;
   height: fit-content;
 }
 .preparation-header--intro {
+  flex: 1 1 300px;
   max-width: var(--limited-width);
 
   & > * {
