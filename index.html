@@ -76,7 +76,8 @@ head: |
 </div>
 
 <ul class="post-grid" role="list">
-  {% for post in site.preparations %}
+  {% assign sorted = site.preparations | sort:"date" | reverse %}
+  {% for post in sorted %}
     <li class="post-card frame-border" data-months="{{ post.months | join: ',' }}">
       <a href="{{ post.url }}"><img src="{{ post.image }}" alt="" width="100px" height="100px"/><span>{{ post.title }}</span></a>
     </li>
